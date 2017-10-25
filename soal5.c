@@ -7,38 +7,27 @@
 pthread_t tid1;
 pthread_t tid2;
 int status;
-FILE* novel;
-void* cariFina(void *arg){
-	//status=0;
-	novel= fopen("Novel.txt","r");
+FILE *bacaan;
+void *cariIfah(void *end){
+	bacaan=fopen("/home/nirmalasari/SoalShift_Modul3_C16/Novel.txt","r");
 	int count=0;
-	char isi[1000];
-	while(fscanf(novel,"%s",isi) != EOF){
- 	   	if(strstr(isi,"fina")!=NULL) count++;
-		//status=1;
-	}
-    	return NULL;
-}
-
-void* cariIfah(void *arg){
-	//while(status!=1){
-	
-	//}
-	novel= fopen("Novel.txt","r");
-	int count=0;
-	char isi[1000];
-	while(fscanf(novel,"%s",isi) != EOF){
- 	   	if(strstr(isi,"ifah")!=NULL) count++;//status=1;
-	}
+	char isi[1024];
+//	while (fscanf(bacaan,"%s", isi)!=EOF){
+	fgets(isi,sizeof(isi),bacaan);
+//		if(strstr(isi,"ifah")) count++;
+//	}
     	printf("iniIfah %d\n",count);
-	return NULL;
+//	fclose(bacaan);
 }
-int main(){
-
-	pthread_create(&(tid1), NULL, &cariIfah, NULL);
-	pthread_create(&(tid2),NULL, &cariFina,NULL);
-    	pthread_join(tid1, NULL);
-    	pthread_join(tid2, NULL);
+void *cariFina(void *end){
+	printf("ini fina\n");
+}
+int main(){	
+    pthread_create(&(tid1), NULL, &cariIfah, NULL);
+    pthread_create(&(tid2), NULL, &cariFina, NULL);
+ 
+    pthread_join(tid1, NULL);
+    pthread_join(tid2, NULL);
  
     return 0;
 }
