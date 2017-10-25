@@ -17,7 +17,7 @@ void *cariIfah(void *end){
 //		if(strstr(isi,"ifah")) count++;
 //	}
     	printf("iniIfah %d\n",count);
-//	fclose(bacaan);
+	fclose(bacaan);
 }
 void *cariFina(void *end){
 	printf("ini fina\n");
@@ -26,8 +26,8 @@ int main(){
     pthread_create(&(tid1), NULL, &cariIfah, NULL);
     pthread_create(&(tid2), NULL, &cariFina, NULL);
  
-    pthread_join(tid1, NULL);
-    pthread_join(tid2, NULL);
+//   pthread_join(tid1, NULL);
+//    pthread_join(tid2, NULL);
  
     return 0;
 }
