@@ -49,7 +49,10 @@ int main(void){
 		int i;
 		printf("Status Lohan: %d\n", hewan[0]);
 		printf("Status Kepiting: %d\n",hewan[1]);
-
+		if(hewan[0]>100 || hewan[1]>100 ||hewan[0]<0||hewan[1]<0){
+			printf("===GAME TELAH BERAKHIR===\n\n\n");
+			break;
+		}
 	}
 	return 0;
 }
