@@ -13,6 +13,9 @@ char sym[2][16];
 
 void* game(void* arg){
 
+    skor1 = 0;
+    skor2 = 0;
+
     char player1[100];
     char player2[100];
 
